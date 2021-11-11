@@ -5,7 +5,7 @@ import SelectDropdown from 'react-native-select-dropdown'
 // import { widthNavigation } from 'react-navigation';
 import styles from '../styles/styles';
 
-const API_URL = Platform.OS === 'ios' ? 'http://localhost:5000' : 'http://10.0.2.2:5000'; 
+const API_URL = Platform.OS === 'ios' ? 'http://localhost:5000' : 'http://127.0.0.1:5000'; 
 
 const MakeStudy = ({navigation} : {navigation:any}) => {
     const [isError, setIsError] = useState(false);

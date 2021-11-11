@@ -5,9 +5,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import NoStudy from './NoStudy';
 import MakeStudy from './MakeStudy';
 import styles from '../styles/styles';
+import axios from 'axios';
 
-
-const API_URL = Platform.OS === 'ios' ? 'http://localhost:5000' : 'http://10.0.2.2:5000'; 
+const API_URL = Platform.OS === 'ios' ? 'http://localhost:5000' : 'http://localhost:5000'; 
 
 const AuthScreen = ({navigation} : {navigation:any}) => {
     const [email, setEmail] = useState('');
@@ -28,7 +28,6 @@ const AuthScreen = ({navigation} : {navigation:any}) => {
         fetch(`${API_URL}/private`, { //GET /경로 HTTP/1.1 Host:ApiServer(우리주소) Authorization:Bearer jwttoken 을 제출하는 oAuth방식
             method: 'GET',
             headers: {
-                'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`, 
             },
         })
@@ -57,9 +56,6 @@ const AuthScreen = ({navigation} : {navigation:any}) => {
         };
         fetch(`${API_URL}/${isLogin ? 'login' : 'signup'}`, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
             body: JSON.stringify(payload),
         })
         .then(async res => { 

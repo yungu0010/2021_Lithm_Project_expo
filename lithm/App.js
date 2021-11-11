@@ -4,13 +4,12 @@ import Loading from './src/screen/Loading';
 import AuthScreen from './src/screen/AuthScreen';
 import NoStudy from './src/screen/NoStudy';
 import MakeStudy from './src/screen/MakeStudy';
-import Profile from './src/screen/Profile';
-import Penalty from './src/screen/Penalty';
-import CalendarView from './src/screen/Calender';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import CalendarView from './src/screen/Calendar';
+import Schedule from './src/screen/Agenda';
 
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { Agenda } from 'react-native-calendars';
 
 // import DrawerBar from './src/navigations/SideMenu';
 
@@ -41,18 +40,20 @@ export default class extends React.Component {
       // }
      
       return (
-        <NavigationContainer>
-          <SafeAreaView style={styles.safeAreaView}>
-                <Stack.Navigator initialRouteName="AuthScreen" screenOptions={{ headerShown: false }}>
-                  {/* <Stack.Screen name="Menu" component={Menu} options={{headerShown: false}}/> */}
-                  <Stack.Screen name="AuthScreen" component={AuthScreen}/>
-                  <Stack.Screen name="NoStudy" component={NoStudy}/>
-                  <Stack.Screen name="MakeStudy" component={MakeStudy}/>
-                  <Stack.Screen name="CalendarView" component={CalendarView}/>
-                </Stack.Navigator>
-              
-          </SafeAreaView>
-        </NavigationContainer>)
+        <Schedule></Schedule>
+        // <NavigationContainer>
+        //   <SafeAreaView style={styles.safeAreaView}>
+        //         <Stack.Navigator initialRouteName="Schedule" screenOptions={{ headerShown: false }}>
+        //           {/* <Stack.Screen name="Menu" component={Menu} options={{headerShown: false}}/> */}
+        //           <Stack.Screen name="AuthScreen" component={AuthScreen}/>
+        //           <Stack.Screen name="NoStudy" component={NoStudy}/>
+        //           <Stack.Screen name="MakeStudy" component={MakeStudy}/>
+        //           <Stack.Screen name="CalendarView" component={CalendarView}/>
+        //           <Stack.Screen name="Schedule" component={Agenda}/>
+        //         </Stack.Navigator>
+        //   </SafeAreaView>
+        // </NavigationContainer>
+        )
     }
 
   }

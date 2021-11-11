@@ -2,7 +2,7 @@ import React,{ useState } from "react";
 import { StyleSheet, Text, View, ImageBackground, Button, Platform} from "react-native";
 import MakeStudy from "./MakeStudy";
 import styles from "../styles/styles";
-const API_URL = Platform.OS === 'ios' ? 'http://localhost:5000' : 'http://10.0.2.2:5000'; 
+const API_URL = Platform.OS === 'ios' ? 'http://F8:F1:E6:29:B3:BF:5000' : 'http://F8:F1:E6:29:B3:BF:5000'; 
 
 // Button 터치하면 MakeStudy 스크린으로 이동할 수 있도록 한다.
 const NoStudy = ({navigation} : {navigation:any}) => {
@@ -11,9 +11,6 @@ const NoStudy = ({navigation} : {navigation:any}) => {
     const onLogout = () => {
         fetch(`${API_URL}/logout`, { //GET /경로 HTTP/1.1 Host:ApiServer(우리주소) Authorization:Bearer jwttoken 을 제출하는 oAuth방식
             method: 'GET',
-            headers: {
-                'Content-Type': 'application/json', 
-            },
         })
         .then(async res => { //res를 가져옴
             try {
